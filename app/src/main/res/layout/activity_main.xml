@@ -9,38 +9,67 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <include
-        android:id="@+id/appBar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/app_bar_layout"/>
 
-        <FrameLayout
-            android:id="@+id/fLayout"
-            android:layout_above="@+id/bnMenu"
-            android:layout_below="@+id/appBar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"/>
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_below="@+id/fLayout"
-            android:id="@+id/bnMenu"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlPancs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/bottom_nav"/>
+            android:layout_below="@+id/appBar"
+            app:tabIndicatorColor="#284507"
+            app:tabSelectedTextColor="#284507"
+            app:tabTextColor="@color/black">
+
+            <com.google.android.material.tabs.TabItem
+                style="@style/Widget.Design.TabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sobre" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="O que é" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pratos" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <include
+            android:id="@+id/appBar"
+            layout="@layout/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tlPancs"
+            android:layout_marginBottom="56dp"
+            android:fitsSystemWindows="true" />
 
     </RelativeLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        app:headerLayout="@layout/nav_header"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnMenu"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
-        android:layout_gravity="start"
-        android:layout_height="match_parent"
-        app:menu="@menu/nav_drawer"/>
+        app:itemIconTint="#89BF4A"
+        app:itemTextColor="#284507"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 
 
